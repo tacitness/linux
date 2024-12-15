@@ -1,0 +1,11 @@
+Source: linux-image
+Section: kernel
+Priority: optional
+Maintainer: Your Name <you@example.com>
+Build-Depends: debhelper (>= 9), kernel-package, fakeroot, bc, bison, flex, libssl-dev
+
+Package: linux-image-%{version}-%{flavor}
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, initramfs-tools (>= 0.99), grub-pc | grub-efi-amd64-bin
+Description: Custom Linux kernel for %{flavor}
+ This package provides the Linux kernel for %{flavor} configuration.
