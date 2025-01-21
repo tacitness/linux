@@ -138,7 +138,7 @@
 # Kernel build and installation
 scripts/config --disable SYSTEM_TRUSTED_KEYS
 scripts/config --disable SYSTEM_REVOCATION_KEYS
-make -j$(nproc) && make -j$(nproc) modules && make -j$(nproc) deb-pkg
+time make -j$(nproc) && time make -j$(nproc) modules && time make -j$(nproc) deb-pkg
 sudo dpkg -i ../linux-*-6.13.0-*
 
 # Prepare headers

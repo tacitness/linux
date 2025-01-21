@@ -128,13 +128,8 @@ static void netfs_retry_read_subrequests(struct netfs_io_request *rreq)
 			trace_netfs_sreq(subreq, netfs_sreq_trace_retry);
 
 			/* Renegotiate max_len (rsize) */
-<<<<<<< HEAD
-			if (rreq->netfs_ops->prepare_read &&
-			    rreq->netfs_ops->prepare_read(subreq) < 0) {
-=======
 			stream->sreq_max_len = subreq->len;
 			if (rreq->netfs_ops->prepare_read(subreq) < 0) {
->>>>>>> e2d46f2ec332 (netfs: Change the read result collector to only use one work item)
 				trace_netfs_sreq(subreq, netfs_sreq_trace_reprep_failed);
 				__set_bit(NETFS_SREQ_FAILED, &subreq->flags);
 				goto abandon;
